@@ -11,9 +11,9 @@ const io = new Server(8000, {
 
 io.on("connection", (socket) => {
     console.log(socket.id)
-    io.emit("server_chat", "apples");
+    socket.emit("server_chat", "apples");
 
-    io.on("client_chat", chat => {
+    socket.on("client_chat", chat => {
         console.log(chat)
     });
 });
