@@ -47,7 +47,11 @@ class App extends React.Component {
 
   handleUserSend(m) {
     this.socket.emit("client_chat", m.text);
-    console.log("here");
+    const messages = this.state.messages;
+    messages.push(m);
+    this.setState({
+      messages
+    });
   }
 
   render() {
